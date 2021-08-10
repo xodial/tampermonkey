@@ -1,75 +1,19 @@
 // ==UserScript==
 // @name         NandGame-QoL
-// @namespace    https://raw.githubconnect.com/xodial/tampermonkey/nandgame.com
-// @version      0.1
+// @namespace    https://github.com/xodial/tampermonkey/raw/main/nandgame.com/qol.user.js
+// @version      0.2
 // @description  QoL improvements for NandGame
 // @author       xodial
 // @match        https://nandgame.com/*
 // @icon         https://www.google.com/s2/favicons?domain=nandgame.com
 // @grant        window.onurlchange
+// @grant        GM_getResourceText
+// @grant        GM_addStyle
+// @resource     CSS https://github.com/xodial/tampermonkey/raw/main/nandgame.com/qol.css
 // ==/UserScript==
 
 (function () {
   'use strict';
-
-  const STYLE = `
-      .qol-trigger {
-          cursor: pointer;
-      }
-
-      .qol-trigger-parent {
-          z-index: 10002;
-          pointer-events: none;
-      }
-
-      .qol-backdrop {
-          z-index: 10000;
-          position: absolute;
-          top: 0;
-          left: 0;
-
-          width: 100%;
-          height: 100%;
-      }
-
-      .qol-menu {
-          z-index: 10001;
-          position: absolute;
-          left: 0;
-
-          border-top: 1px solid var(--gray);
-          padding: 0;
-          margin: 0;
-
-          background-color: var(--gray-dark);
-          transition: opacity 200ms ease-in-out, margin-top 200ms ease-in-out;
-          opacity: 0;
-          margin-top: -100px;
-      }
-
-      .qol-menu--visible {
-          opacity: 1;
-          margin-top: 0;
-      }
-
-      .qol-menu__item {
-          cursor: pointer;
-          list-style: none;
-
-          padding: 8px 16px;
-          color: var(--white);
-      }
-
-      .qol-menu__item:hover {
-          background-color: rgba(255, 255, 255, 0.1);
-      }
-
-      .qol-menu,
-      .qol-menu__item:last-child {
-          border-bottom-left-radius: 0.25rem;
-          border-bottom-right-radius: 0.25rem;
-      }
-  `;
 
   const OPTIONS = [];
 
@@ -104,8 +48,6 @@
       uploadTrigger.type = 'file';
       uploadTrigger.accept = 'application/json';
 
-      uploadTrigger.click();
-
       uploadTrigger.addEventListener(
         'change',
         (e) => {
@@ -134,6 +76,8 @@
         },
         { once: true }
       );
+
+      uploadTrigger.click();
     },
   });
 
@@ -145,10 +89,7 @@
     });
   }
 
-  let mounted = false;
-  async function mount(...args) {
-    const [menu, backdrop] = args;
-
+  async function mount(menu, backdrop) {
     const menuTrigger = document.querySelector('.navbar-brand');
     if (!menuTrigger) {
       return;
@@ -196,13 +137,9 @@
     menu.addEventListener('click', closeMenu);
     backdrop.addEventListener('click', closeMenu);
     menuTrigger.addEventListener('click', toggleMenu);
-
-    mounted = true;
   }
 
-  const styleEl = document.createElement('style');
-  styleEl.textContent = STYLE;
-  document.querySelector('head').appendChild(styleEl);
+  GM_addStyle(GM_getResourceText('CSS'));
 
   const menu = document.createElement('ul');
   menu.classList.add('qol-menu');

@@ -1,0 +1,56 @@
+.qol-trigger {
+  cursor: pointer;
+}
+
+.qol-trigger-parent {
+  z-index: 10002;
+  pointer-events: none;
+}
+
+.qol-backdrop {
+  z-index: 10000;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+}
+
+.qol-menu {
+  z-index: 10001;
+  position: absolute;
+  left: 0;
+
+  border-top: 1px solid var(--gray);
+  padding: 0;
+  margin: 0;
+
+  background-color: var(--gray-dark);
+  transition: opacity 200ms ease-in-out, margin-top 200ms ease-in-out;
+  opacity: 0;
+  margin-top: -100px;
+}
+
+.qol-menu--visible {
+  opacity: 1;
+  margin-top: 0;
+}
+
+.qol-menu__item {
+  cursor: pointer;
+  list-style: none;
+
+  padding: 8px 16px;
+  color: var(--white);
+}
+
+.qol-menu__item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.qol-menu,
+.qol-menu__item:last-child {
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
