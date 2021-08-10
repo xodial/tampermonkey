@@ -1,9 +1,11 @@
 // ==UserScript==
 // @name         NandGame-QoL
-// @namespace    https://github.com/xodial/tampermonkey/raw/main/nandgame.com/qol.user.js
+// @namespace    https://github.com/xodial/tampermonkey/nandgame.com/
 // @version      0.2
 // @description  QoL improvements for NandGame
-// @author       xodial
+// @author       xodia
+// @downloadURL    https://github.com/xodial/tampermonkey/raw/main/nandgame.com/qol.user.jsl
+// @updateURL    https://github.com/xodial/tampermonkey/raw/main/nandgame.com/qol.user.js
 // @match        https://nandgame.com/*
 // @icon         https://www.google.com/s2/favicons?domain=nandgame.com
 // @grant        window.onurlchange
