@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NandGame-QoL
 // @namespace    https://github.com/xodial/tampermonkey/nandgame.com/
-// @version      0.2
+// @version      0.3
 // @description  QoL improvements for NandGame
 // @author       xodial
 // @downloadURL  https://github.com/xodial/tampermonkey/raw/main/nandgame.com/qol.user.js
@@ -34,7 +34,7 @@
 
       const downloadLink = document.createElement('a');
       downloadLink.href = url;
-      downloadLink.download = `NandGame Save - ${new Date().toISOString()}.json`;
+      downloadLink.download = `NandGame - ${new Date().toISOString()}.save.json`;
 
       downloadLink.click();
     },
