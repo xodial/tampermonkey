@@ -5,6 +5,8 @@
 .qol-trigger-parent {
   z-index: 10002;
   pointer-events: none;
+  background-color: #343a40;
+  background-color: var(--bs-gray-dark);
 }
 
 .qol-backdrop {

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NandGame-QoL
 // @namespace    https://github.com/xodial/tampermonkey/nandgame.com/
-// @version      0.4
+// @version      0.5
 // @description  QoL improvements for NandGame
 // @author       xodial
 // @match        https://nandgame.com/*
@@ -125,7 +125,10 @@
 
       menuTriggerParent.classList.add('qol-trigger-parent');
 
-      menu.style.minWidth = `${menuTrigger.getBoundingClientRect().width + 32}px`;
+      const { width, left } = menuTrigger.getBoundingClientRect();
+      const margin = `${getComputedStyle(menuTrigger).getPropertyValue("margin-right")}`;
+
+      menu.style.minWidth = `calc(${left + width}px + ${margin})`;
       menu.style.top = `${menuTriggerParent.getBoundingClientRect().bottom}px`;
       window.requestAnimationFrame(() => menu.classList.add('qol-menu--visible'));
 
