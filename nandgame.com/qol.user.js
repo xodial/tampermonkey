@@ -4,8 +4,6 @@
 // @version      0.3
 // @description  QoL improvements for NandGame
 // @author       xodial
-// @downloadURL  https://github.com/xodial/tampermonkey/raw/main/nandgame.com/qol.user.js
-// @updateURL    https://github.com/xodial/tampermonkey/raw/main/nandgame.com/qol.user.js
 // @match        https://nandgame.com/*
 // @icon         https://www.google.com/s2/favicons?domain=nandgame.com
 // @grant        window.onurlchange
