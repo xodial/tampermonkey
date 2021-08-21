@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NandGame-QoL
 // @namespace    https://github.com/xodial/tampermonkey/nandgame.com/
-// @version      0.3
+// @version      0.4
 // @description  QoL improvements for NandGame
 // @author       xodial
 // @match        https://nandgame.com/*
